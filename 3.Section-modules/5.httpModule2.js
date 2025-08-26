@@ -10,16 +10,21 @@ const server = http.createServer(function (req, res) {
   console.log("requested URL", req.url); //easily can see the requested URL.
   if (req.url === "/") {
     // you will see below write's text in the browser documnt, which directly came from the server.
-    res.write("this is a home page");
+    //parsing HTML tag within write method
+    res.write("<h1>this is a home page</h1>");
   }
+  // about route request,
   else if (req.url === "/about") {
-    res.write("this is a about page");
+    
+    res.write("<h2>this is a about page</h2>");
   }
+  //contact route request
   else if (req.url === "/contact") {
-    res.write("this is a contact page");
+    res.write("<h3>this is a contact page</h3>");
   }
+  //for any gibberish route request
   else {
-    res.write("404 Not Found");
+    res.write("<h4>404 Not Found</h4>");
   }
   // we have to end the response once open,
   res.end();
