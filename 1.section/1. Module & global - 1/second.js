@@ -1,0 +1,1 @@
+console.log('good bye, shit! Eskore! :p :D')
