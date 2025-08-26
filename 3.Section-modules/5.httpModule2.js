@@ -11,12 +11,15 @@ const server = http.createServer(function (req, res) {
   if (req.url === "/") {
     // you will see below write's text in the browser documnt, which directly came from the server.
     //parsing HTML tag within write method
+    // adding multiple write method.
     res.write("<h1>this is a home page</h1>");
+    res.write("<p>this is a paragraph description</p>");
   }
   // about route request,
   else if (req.url === "/about") {
     
     res.write("<h2>this is a about page</h2>");
+    res.write("<i>this is a italic text.</i>");
   }
   //contact route request
   else if (req.url === "/contact") {
