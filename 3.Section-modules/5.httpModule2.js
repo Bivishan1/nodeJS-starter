@@ -8,6 +8,11 @@ const server = http.createServer(function(req,res) {
     // every req to the server, will store on this req object, whereas,,
     // every response from the server, will store on this res object.
     console.log('requested URL',req.url); //easily can see the requested URL.
+    if (req.url === '/') {
+        res.write('this is a home page')
+    }
+    // we have to end the response once open,
+    res.end();
 }); 
 
 
