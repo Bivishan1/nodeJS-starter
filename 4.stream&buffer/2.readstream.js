@@ -19,14 +19,23 @@ const fs = require("fs");
 // const readStream = fs.createReadStream("./data.txt", {encoding:"utf-8"}); // call this object or .toString()
 const readStream = fs.createReadStream("./data.txt");
 
+//to read a whole buffer at a time,,[y]
+const content = [];
+
 //now registering above data event,, so the default event will be data.
 //since, register (by on method) takes two parameters,
 // 'data' is already define by node.js , as we said earlier above.
 readStream.on("data", (buffer) => {
-  console.log("buffering...", buffer.toString());
+// [y]
+//now, after pushing in content array, it contains buffer. which needs to concat in 'end' event below [37].
+content.push(buffer);
 });
-
-// So every time the buffer is filled up by the stream and within this callback function of data event [25], we can receive this buffer [25].
-// And you can access this (parameter) buffer. [24]
-//so, the actual meaing behind the stream and buffer is like, data stream hudai jada buffer filled up hudai janxa, jun bistarai filled up hunxa, rah, buffer lai complete gardai gayesi client lai dekhauxa, so like that, in above example, happens same, if mah sanga large bunch of text ko data data.txt ma xa, ra maile yo readStream bata data read garda dherai data haru stream  hudai aayera buffer ma audai display garxa jun concept chai like async await jasto, (but purai chai hain async await ko jasto) data bistarai dekhauxa load hudai and complete ``garxa last ma,, so this process of displaying data is called :`actual data is reading by steaming mechanism.` vanne concept is called stream and buffer.
-//  // so readSteam method is very useful for large file streaming (reading) and buffering (displaying).
+//[y]
+//like data event, there is another built in event which is 'end' event. whenever, data streaming is finished , then this 'end' event will be fire.
+//registering 'end' event. that takes two parameter, one 'end' event and another callback function.
+readStream.on('end', function() {
+    //concating above content buffer (it made buffer while we push buffer in that content array) with the Buffer object. [y]
+    //since it return an string, so let's store in variable. [y]
+const finalData = Buffer.concat(content).toString()
+console.log(finalData);
+})
