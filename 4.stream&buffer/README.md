@@ -320,3 +320,8 @@ This is a test file.
 The extra line in the first code is caused by the \n newline that’s already in the file.
 
 The reason it looks split is because each chunk is logged separately with its own console.log.
+
+# Note :
+1. These read and write stream methods are available in popular Node.js frameowkr i.e. Express.js.
+2. Just trying to see how node.js works under the hood by creating manually these stream methods and creating, reading and updating files.
+
