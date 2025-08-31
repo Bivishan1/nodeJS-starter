@@ -1,4 +1,4 @@
-what is the actual difference between first code and second code below. could you ellaborate clearly?
+// what is the actual difference between first code and second code below. could you ellaborate clearly?
 first code:
 const fs = require("fs");
 
@@ -26,7 +26,7 @@ ChatGPT said:
 
 Great question 👌 Let’s break it down carefully. Both codes use streams in Node.js (fs.createReadStream) but the way they handle the incoming data is different.
 
-First Code
+## First Code
 const fs = require("fs");
 
 const readStream = fs.createReadStream("./data.txt");
@@ -54,7 +54,7 @@ buffering... ext file...
 
 You’re not assembling the full file in memory, just reacting chunk by chunk.
 
-Second Code
+## Second Code
 const fs = require("fs");
 const readStream = fs.createReadStream("./data.txt");
 
