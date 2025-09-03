@@ -31,3 +31,15 @@ In the script object:
 *. Express.js is a framework of Node.js.
 *. Express.js is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
 *. Express.js is a minimalist web framework for Node.js.
+
+<!-- Installing Nodemon -->
+Which is a third party package that helps to restart the server automatically when we make changes in our code. Instead of doing manually stopping the server and restarting it (server) again.
+------Steps -----
+1. Now, simply change node with nodemon in scripts object of start name like this :
+`  "scripts": {
+    "start": "nodemon ./index"
+  }, `
+
+  <p> then, simply run the command `npm start`'. </p>
+
+Now, you can simply see in the terminal console is that, server is simply starting with the nodemon tag.
