@@ -13,7 +13,11 @@ const app= express1();
 // .. this .json method not only helps us to convert to json format but also helps to convert json to javascript object.
 // we can also use .text() method to convert to text format.
 // app.use(express.json());
-app.use(express.text())
+// to display just as plain string,,, modify in postman or thunderclient as by setting to raw and text.
+//app.use(express.text());
+//to see, buffer data (later can be convert into string) and provide some string data in Text header (inside Body tab) in thunderclient and send the request.
+//Note : in api tool (like postman,) will take your input or data from body, automatically if you select JSON or Text. that means, if you select JSON then the JSON value will take and same like if you select TEXt, then the JSON value will take.
+app.use(express.raw())
 
 app.get('/', (req, res)=> {
     console.log("User hit the resource");
@@ -39,7 +43,7 @@ app.post('/example', (req, res, next) =>{
     // const {name, age} = req.body;
     // console.log(name , age);
     const data = req.body;
-    console.log(data);
+    console.log(data.toString()); // converting to string
 })
 
 // 
